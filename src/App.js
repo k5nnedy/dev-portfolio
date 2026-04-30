@@ -15,16 +15,30 @@ function App() {
   return (
     <div className="App">
       {}
-      <StatusBar />
-      <Header />
+      <StatusBar/>
+      <Header/>
       {}
       <main className="content-area">
 
         <div className="inner-container">
             <section id="about">
                 <h2>- About Me</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '15px'}}>
-                    <p>About me here</p>
+                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '12px'}}>
+                    <div className="about-text">
+                    <p> Hello, I am a current student at Pace University studying Computer Science and Mathematics.
+                    </p>
+
+                    <p> I believe that to truly understand a technology, you have to build it yourself.
+                        I am driven to understand the layers under abstraction and diving deep into the fundamentals of computing.
+                    </p>
+
+                    <p> While my foundation is in Java and Python, I have been pivoting my time in learning C, and Rust.
+                        This shift was because of many factors. I wanted to understand how computers operate under the hood, and to challenge myself with lower level languages. 
+                        Most of my projects consists of me building things from the ground up. 
+                        Whether it be programming real-time terminal applications or multithreaded servers, I do this to truly grasp how data moves through a system.
+                    </p>
+                    
+                    </div>                
                 </div>
             </section>
         </div>
@@ -40,7 +54,6 @@ function App() {
                         <SkillIcon IconComponent={SiC} name="C"/>
                         <SkillIcon IconComponent={SiRust} name="Rust"/>
                         <SkillIcon IconComponent={SiJavascript} name="JavaScript"/>
-                        <SkillIcon IconComponent={SiPhp} name="PHP"/>
                     </div>
                     <h3>Tools</h3>
                     <div className="icons-grid">
@@ -65,13 +78,19 @@ function App() {
         <div className="inner-container">
             <section id="contact">
                 <h2>- Contact Me</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '15px'}}>
+                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '15px', textDecoration: 'none'}}>
                     <div className="icons-grid">
+                        <a href="mailto:kennedyelekwachi123@gmail.com" className="contact-link">
                         <SkillIcon IconComponent={SiGmail} name="Email"/>
+                        </a>
+                        <a href="https://github.com/k5nnedy" target="_blank" rel="noreferrer" className="contact-link">
                         <SkillIcon IconComponent={SiGithub} name="Github"/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kennedy-elekwachi-700235293/" target="_blank" rel="noreferrer" className="contact-link" >
                         <SkillIcon IconComponent={FaLinkedin} name="LinkedIn"/>
+                        </a>
+                        
                     </div>
-                    <p>These will be links later</p>
                 </div>
             </section>
         </div> 

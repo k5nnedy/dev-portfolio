@@ -51,7 +51,7 @@ html, body {
 }
 
 .dim-text {
-    color: #585b70;
+    color: #6b6b6e;
 }
 
 .right-info {
@@ -108,4 +108,12 @@ section {
   margin-top: 8px;
   color: #585b70;
   font-family: 'Fira Code', monospace;
+}
+
+.contact-link {
+    text-decoration: none;
+}
+.about-text p {
+  color: #7499d4;
+  line-height: 1.6;
 }
