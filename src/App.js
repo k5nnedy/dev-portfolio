@@ -44,8 +44,10 @@ function App() {
                         I am driven to understand the layers under abstraction and diving deep into the fundamentals of computing.
                     </p>
 
-                    <p> While my foundation is in Java and Python, I have been pivoting my time in learning C, and Rust.
-                        This shift was because of many factors. I wanted to understand how computers operate under the hood, and to challenge myself with lower level languages. 
+                    <p> While my foundation is in Java & Python, I have been pivoting my time in learning C, and Rust.
+                        This shift was because of many factors. I wanted to understand how computers operate under the hood, and to challenge myself with lower level languages.
+                        Another reason is that I believe that as applications & AI grow (and RAM gets more expensive), more people will be needed to build their hardware backends and engines that power & optimize them. 
+                        These languages show me why performance truly matters, especially as tech scales. 
                         Most of my projects consists of me building things from the ground up. 
                         Whether it be programming real-time terminal applications or multithreaded servers, I do this to truly grasp how data moves through a system.
                     </p>
@@ -121,7 +123,7 @@ function App() {
                         </a>
                     </div>
             </section>
-            </div> 
+            </div>
         </AnimationBlock>
         
       </main>
@@ -130,4 +132,3 @@ function App() {
 }
 
 export default App;
-
