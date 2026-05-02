@@ -4,7 +4,7 @@ import './styles.css';
 import Header from './Header';
 import SkillIcon from './SkillIcons';
 import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun} from 'react-icons/si';
-import {FaJava, FaGitAlt, FaLinkedin} from 'react-icons/fa';
+import {FaJava, FaGitAlt, FaLinkedin, FaReact} from 'react-icons/fa';
 import {motion} from "motion/react";
 import AnimationBlock from "./AnimationBlock";
 import { SlSocialLinkedin } from 'react-icons/sl';
@@ -71,11 +71,12 @@ function App() {
                         <SkillIcon IconComponent={SiRust} name="Rust"/>
                         <SkillIcon IconComponent={SiJavascript} name="JavaScript"/>
                     </div>
-                    <h3>Tools</h3>
+                    <h3>Tools/Libraries</h3>
                     <div className="icons-grid">
                         <SkillIcon IconComponent={FaGitAlt} name="Git"/>
                         <SkillIcon IconComponent={SiDocker} name="Docker"/>
                         <SkillIcon IconComponent={SiUbuntu} name ="Ubuntu"/>
+                        <SkillIcon IconComponent={FaReact} name="React"/>
                         <SkillIcon IconComponent={SiNeovim} name="Neovim"/>
                     </div>
                 </div>
