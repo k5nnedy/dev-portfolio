@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-const StatusBar = () => {
+const StatusBar = ({theme, onToggle}) => {
   const navItems = [
     { id: '00', label: 'About', link: '#about' },
     { id: '01', label: 'Skills', link: '#skills' },
@@ -13,7 +13,12 @@ const StatusBar = () => {
 
   return (
     <nav className="status-bar">
-      <div className="mode-indicator">NORMAL</div>
+        <div className={`mode-indicator ${theme === 'dark' ? 'insert-mode' : 'normal-mode'}`}
+        onClick={onToggle}
+        style={{ cursor: 'pointer' }}
+        >
+            {theme === 'light' ? 'NORMAL' : 'INSERT'}
+        </div>
 
       <div className="nav-container">
         {navItems.map((item) => (

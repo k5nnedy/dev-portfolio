@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StatusBar from './StatusBar'; 
 import './styles.css';
 import Header from './Header';
@@ -6,24 +6,36 @@ import SkillIcon from './SkillIcons';
 import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun} from 'react-icons/si';
 import {FaJava, FaGitAlt, FaLinkedin} from 'react-icons/fa';
 import {motion} from "motion/react";
+import AnimationBlock from "./AnimationBlock";
 import { SlSocialLinkedin } from 'react-icons/sl';
 import { FaMailchimp } from 'react-icons/fa6';
 import { TiSocialLinkedin } from 'react-icons/ti';
+import ProjectCard from './ProjectCard';
+import TypeEffect from './TypingAnimation';
 
 
 function App() {
+    const [theme, setTheme] = useState('light');
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+    
+    const toggleTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    };
+
   return (
     <div className="App">
-      {}
-      <StatusBar/>
-      <Header/>
-      {}
+        <StatusBar theme={theme} onToggle={toggleTheme} />
+        <Header/>
+      
       <main className="content-area">
-
-        <div className="inner-container">
+        <AnimationBlock>
+            <div className="inner-container">
             <section id="about">
                 <h2>- About Me</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '12px'}}>
+                <div className="indent-block">
                     <div className="about-text">
                     <p> Hello, I am a current student at Pace University studying Computer Science and Mathematics.
                     </p>
@@ -37,16 +49,18 @@ function App() {
                         Most of my projects consists of me building things from the ground up. 
                         Whether it be programming real-time terminal applications or multithreaded servers, I do this to truly grasp how data moves through a system.
                     </p>
-                    
+
                     </div>                
                 </div>
             </section>
-        </div>
-
-        <div className="inner-container">
+            </div>
+        </AnimationBlock>
+        
+        <AnimationBlock>
+            <div className="inner-container">
             <section id="skills">
                 <h2>- Skills</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px, solid #313244', paddingLeft: '15px;'}}>
+                <div className="indent-block">
                     <h3>Languages</h3>
                     <div className="icons-grid">
                         <SkillIcon IconComponent={FaJava} name="Java"/>
@@ -64,21 +78,37 @@ function App() {
                     </div>
                 </div>
             </section>
-        </div>
+            </div>
+        </AnimationBlock>
         
-        <div className="inner-container">
+        <AnimationBlock>
+            <div className="inner-container">
             <section id="projects">
                 <h2>- Projects</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '15px'}}>
-                    <p>Projects Displayed here</p>
+                <div className="indent-block">
+
+                    <ProjectCard
+                    title="Java Web Server"
+                    tech={["Java", "ServerSockets", "Concurrency"]}
+                    description="Implemented a simple HTTP Server from scratch to learn more about networking and understand web servers on a deeper level."
+                    link="https://github.com/k5nnedy/web-server"
+                    />
+
+                    <ProjectCard
+                    title="Multi-Threaded Chatroom"
+                    tech={["Java", "Sockets", "Concurrency"]}
+                    description="A real-time terminal chat application built from scratch to understand how data moves through a system using TCP/IP and multi-threaded server architecture."
+                    link="https://github.com/k5nnedy/terminal-group-chat"
+                    />
                 </div>
             </section>
-        </div>
+            </div>
+        </AnimationBlock>
         
-        <div className="inner-container">
+        <AnimationBlock>
+            <div className="inner-container">
             <section id="contact">
                 <h2>- Contact Me</h2>
-                <div style={{marginLeft: '20px', borderLeft: '2px solid #313244', paddingLeft: '15px', textDecoration: 'none'}}>
                     <div className="icons-grid">
                         <a href="mailto:kennedyelekwachi123@gmail.com" className="contact-link">
                         <SkillIcon IconComponent={SiGmail} name="Email"/>
@@ -89,11 +119,11 @@ function App() {
                         <a href="https://www.linkedin.com/in/kennedy-elekwachi-700235293/" target="_blank" rel="noreferrer" className="contact-link" >
                         <SkillIcon IconComponent={FaLinkedin} name="LinkedIn"/>
                         </a>
-                        
                     </div>
-                </div>
             </section>
-        </div> 
+            </div> 
+        </AnimationBlock>
+        
       </main>
     </div>
   );

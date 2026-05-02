@@ -1,14 +1,17 @@
 import React from 'react';
-import {easeIn, motion} from "motion/react";
+import {motion} from "motion/react";
 
-const TextAnimation = ({children}) => {
+const AnimationBlock = ({children}) => {
     return (
     <motion.div
-    initial ={{ x: -25, opacity=0}}
-    whileInView={{x:0, opacity= 1}}
-    animate = {{y: 0, opacity=1}}
-    transition={{duration=1, ease= 'easeInOut'}}>
-        Projects 
+    initial ={{ opacity: 0, x: -20}}
+    whileInView={{opacity: 1, x:0}}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{duration:0.5, ease: 'easeInOut'}}
+    >
+        {children}
         </motion.div>
         );
     };
+
+export default AnimationBlock;

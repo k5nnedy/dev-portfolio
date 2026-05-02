@@ -1,12 +1,28 @@
 .header-container {
   margin-top: 60px;
   margin-left: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+.header-container h1 {
+    font-size: 3.5rem;
+    color: var(--accent-blue);
+    font-family: 'Fira Code', monospace;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+/* For mobile use */
+@media (max-width: 768px) {
+  .header-container h1 {
+    font-size: 2.5rem; 
+  }
 }
 
 .header-name {
   font-size: 3rem;
-  color: #89b4fa;
+  color: var(--accent-blue);
   font-family: 'Fira Code', monospace;
   margin: 0;
   display: flex;
@@ -14,18 +30,26 @@
 }
 
 .header-subtitle {
-  color: #585b70;
+  color: var(--text-secondary);
   font-family: 'Fira Code', monospace;
   font-size: 1.1rem;
   margin-top: 8px;
+  transition: color 0.3s ease;
 }
 
 /* The Blinking Cursor (vibe coded this because I thought it was cool) */
 .cursor {
   display: inline-block;
   margin-left: 10px;
-  color: #89b4fa;
+  color: var(--accent-blue);
   animation: blink 1s step-end infinite;
+}
+
+.header-container h1::after {
+  content: "█";
+  margin-left: 10px;
+  color: var(--accent-blue);
+  animation: blink 1.1s step-end infinite;
 }
 
 @keyframes blink {

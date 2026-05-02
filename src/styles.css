@@ -2,13 +2,15 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #e1e4f1;
+  background-color: var(--bg-color);
+  color: var(--text-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .status-bar {
     display: flex;
-    background-color: #1e1e2e;
-    color: #cdd6f4;
+    background-color: var(--status-bar-bg);
+    color: var(--status-bar-txt);
     font-size: 14px;
     font-family: Fire Code, monospace;
     height: 36px;
@@ -19,12 +21,17 @@ html, body {
     width: 100%;
     z-index: 1000;
 }
+.indent-block {
+    margin-left: 20px;
+    border-left: 2px solid var(--indent-line);
+    padding-left: 15px;
+}
 
 .mode-indicator{
     margin: 0; 
     padding: 0 15px;
-    background-color: #89b4fa;
-    color: #11111b;
+    background-color: var(--accent-blue);
+    color: var(--status-bar-bg);
     padding: 0 20px;
     font-weight: bold;
     height: 100%;
@@ -40,18 +47,18 @@ html, body {
 }
 
 .nav-link:hover {
-    color: #89b4fa;
+    color: var(--status-bar-hover);
 }
 
 .nav-link {
-    color: #cdd6f4;
+    color: var(--status-bar-txt);
     text-decoration: none;
     cursor: pointer;
     padding: 0 5px;
 }
 
 .dim-text {
-    color: #6b6b6e;
+    color: var(--status-bar-txt);
 }
 
 .right-info {
@@ -66,14 +73,18 @@ html, body {
   font-family: 'Fira Code', monospace; 
 }
 
-section {
+.section {
   padding: 42px 0;
 }
 
 .inner-container {
   max-width: 70%;
-  border-bottom: 1px solid #313244;
+  border-bottom: 1px solid var(--indent-line);
   padding-bottom: 15px;
+}
+
+.inner-container h2 {
+    color: var(--subtitle-text);
 }
 
 .icons-grid {
@@ -96,17 +107,17 @@ section {
 
 .skill-svg {
   font-size: 40px;
-  color: #89b4fa;
+  color: var(--text-primary);
 }
 
 .skill-icon-wrapper:hover .skill-svg {
-  color: #313244;
+  color: var(--skill-icon-hover);
 }
 
 .skill-label {
   font-size: 12px;
   margin-top: 8px;
-  color: #585b70;
+  color: var(--text-secondary);
   font-family: 'Fira Code', monospace;
 }
 
@@ -114,6 +125,119 @@ section {
     text-decoration: none;
 }
 .about-text p {
-  color: #7499d4;
+  color: var(--text-primary);
   line-height: 1.6;
 }
+
+/* Project cards start here */
+.project-card {
+  margin-bottom: 40px;
+  font-family: 'Fira Code', monospace;
+}
+
+.project-header .typewriter-text{
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  display: inline-flex !important;
+  margin-bottom: 10px;
+}
+
+.prompt { 
+    color: #a6e3a1; margin-right: 10px;
+}
+.command { 
+    color: var(--accent-blue); font-weight: bold;
+}
+
+.project-content {
+  margin-left: 25px;
+  border-left: 2px solid #313244;
+  padding-left: 20px;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.tech-tag {
+  display: inline-block;
+  background: var(--indent-line);
+  color: var(--text-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.source-link {
+  display: block;
+  margin-top: 15px;
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.source-link:hover {
+    color: var(--skill-icon-hover);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2rem;
+  background-color: var(--accent-blue);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+.project-container .typewriter-text {
+  content: "█";
+  margin-left: 10px;
+  color: var(--text-primary);
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* 1. Default theme */
+:root {
+  --bg-color: #e1e4f1;
+  --text-primary: #89b4fa;
+  --text-secondary: #6a6d87;
+  --subtitle-text: #6a6d87;
+  --status-bar-txt: #cdd6f4;
+  --accent-blue: #81abed;
+  --indent-line: #313244;
+  --status-bar-bg: #1e1e2e;
+  --status-bar-hover: #81abed;
+  --skill-icon-hover: #313244;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1e1e2e;
+  --text-primary: #cdd6f4;  
+  --text-secondary: #7f849c;
+  --subtitle-text: #81abed;
+  --status-bar-txt: #cdd6f4;
+  --accent-blue: #89b4fa;   
+  --indent-line: #7f849c;
+  --status-bar-bg: #11111b;
+  --status-bar-hover: #a6e3a1;
+  --skill-icon-hover: #a6e3a1;
+}
+
+.normal-mode { 
+    background-color: #3d59a1; 
+    color: white; 
+}
+.insert-mode { 
+    background-color: #a6e3a1; 
+    color: #1e1e2e; 
+}
+
