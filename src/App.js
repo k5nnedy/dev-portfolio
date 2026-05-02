@@ -5,7 +5,7 @@ import Header from './Header';
 import SkillIcon from './SkillIcons';
 import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun} from 'react-icons/si';
 import {FaJava, FaGitAlt, FaLinkedin, FaReact} from 'react-icons/fa';
-import {motion} from "motion/react";
+import {defaultValueTypes, motion} from "motion/react";
 import AnimationBlock from "./AnimationBlock";
 import { SlSocialLinkedin } from 'react-icons/sl';
 import { FaMailchimp } from 'react-icons/fa6';
@@ -24,6 +24,34 @@ function App() {
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
+
+    useEffect (() => {
+        const handleKeyDown = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            switch (e.key) {
+                case 'j':
+                    window.scrollBy({ top: 150, behavior: 'smooth' });
+                    break;
+                case 'k':
+                    window.scrollBy({ top: -150, behavior: 'smooth' });
+                    break;
+                case 'i':
+                    setTheme('dark');
+                    break;
+                case 'Escape':
+                    setTheme('light');
+                    break;
+                    default:
+                    break;
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
   return (
     <div className="App">
