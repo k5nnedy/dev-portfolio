@@ -24,7 +24,7 @@ import './search.css';
 import './Githubrepos.css';
 
 
-import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun, SiPytorch, SiNumpy} from 'react-icons/si';
+import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun, SiPytorch, SiNumpy, SiCplusplus} from 'react-icons/si';
 import {FaJava, FaGitAlt, FaLinkedin, FaReact} from 'react-icons/fa';
 import { SlSocialLinkedin } from 'react-icons/sl';
 import { FaMailchimp } from 'react-icons/fa6';
@@ -147,6 +147,7 @@ function App() {
                                 <SkillIcon IconComponent={SiPython} name="Python"/>
                                 <SkillIcon IconComponent={SiC} name="C"/>
                                 <SkillIcon IconComponent={SiRust} name="Rust"/>
+                                <SkillIcon IconComponent={SiCplusplus}name ="C++"/>
                                 <SkillIcon IconComponent={SiJavascript} name="JavaScript"/>
                             </div>
                             <h3>Tools/Libraries</h3>
