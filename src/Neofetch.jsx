@@ -17,7 +17,6 @@ const INFO_ROWS = [
     { key: 'OS', value: 'macOS / Ubuntu 24.04 LTS'},
     { key: 'Shell', value: 'zsh' },
     { key: 'Editor', value: 'vscode, neovim'},
-    { key: 'Uptime', value: '20 years' },
     { key: 'Lang', value: 'Java · Python · C ' },
     { key: 'Tools', value: 'Git · Linux · Docker · React' },
     { key: 'Studying', value: 'CS & Mathematics @ Pace' },
