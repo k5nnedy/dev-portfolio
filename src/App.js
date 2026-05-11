@@ -24,7 +24,7 @@ import './search.css';
 import './Githubrepos.css';
 
 
-import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun} from 'react-icons/si';
+import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun, SiPytorch, SiNumpy} from 'react-icons/si';
 import {FaJava, FaGitAlt, FaLinkedin, FaReact} from 'react-icons/fa';
 import { SlSocialLinkedin } from 'react-icons/sl';
 import { FaMailchimp } from 'react-icons/fa6';
@@ -114,6 +114,7 @@ function App() {
   return (
     <SearchProvider>
         <div className="App">
+            
             {booting && <LoadingCycle onComplete={() => setBooting(false)} />}
             <StatusBar theme={theme} onToggle={toggleTheme} activeSection={activeSection} scrollPct={scrollPct} />
             <Header/>
@@ -153,6 +154,8 @@ function App() {
                                 <SkillIcon IconComponent={FaGitAlt} name="Git"/>
                                 <SkillIcon IconComponent={SiDocker} name="Docker"/>
                                 <SkillIcon IconComponent={SiUbuntu} name ="Ubuntu"/>
+                                <SkillIcon IconComponent={SiPytorch} name="PyTorch"/>
+                                <SkillIcon IconComponent={SiNumpy} name = "NumPy"/>
                                 <SkillIcon IconComponent={FaReact} name="React"/>
                                 <SkillIcon IconComponent={SiNeovim} name="Neovim"/>
                             </div>
@@ -184,8 +187,8 @@ function App() {
                             <ProjectCard
                             title="Music Playlist Analyzer"
                             tech={["Java", "OpenCSV", "JUnit"]} 
-                            description=""
-                            link="https://github.com/zaynabbassi-coder/CS241TermProject"
+                            description=" Sorting Algorithm analysis framework for DSA course. This project serves as a tool to visualize how different algorithms scale with large data and to practice writing object-oriented Java code for algorithmic problem-solving. "
+                            link="https://github.com/k5nnedy/CS241TermProject"
                             />
                             <GitHubRepos username="k5nnedy" />
                             

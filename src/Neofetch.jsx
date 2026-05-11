@@ -15,11 +15,12 @@ const INFO_ROWS = [
     { key: 'user', value: 'k5nnedy student@pace-u' },
     { key: null, value: '─────────────────────────' },
     { key: 'OS', value: 'macOS / Ubuntu 24.04 LTS'},
-    { key: 'Shell', value: 'zsh + neovim' },
+    { key: 'Shell', value: 'zsh' },
+    { key: 'Editor', value: 'vscode, neovim'},
     { key: 'Uptime', value: '20 years' },
     { key: 'Lang', value: 'Java · Python · C ' },
     { key: 'Tools', value: 'Git · Linux · Docker · React' },
-    { key: 'Studying', value: 'CS + Mathematics @ Pace' },
+    { key: 'Studying', value: 'CS & Mathematics @ Pace' },
     { key: 'Status', value: 'open to internships' },
     { key: 'Colors', value: null }, // rendered as color swatches
 ];
