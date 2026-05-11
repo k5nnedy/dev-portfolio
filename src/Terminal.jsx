@@ -36,7 +36,7 @@ const Terminal = () => {
                 case 'cat about.txt':
                     newHistory.push({
                         type: 'output',
-                        text: "Computer Science & Mathematics student athlete at Pace University.\nInterested in learning more about low level computing and how it can optimize tools in the world of AI.\nCurrently learning C & Rust to understand the layers under abstraction, and to build my programming fundemental skills.\nOpen to internships."
+                        text: "Computer Science & Mathematics student athlete at Pace University.\nOutside of my coursework I spend time playing football for Pace, I have also picked up a recent hobby in chess as well.\nInterested in learning more about low level computing and how it can optimize tech especially as AI grows in demand.\nCurrently learning C & Rust to understand these concepts, and to build my programming fundemental skills.\nOpen to internships and job opportunities."
                     })
                 break;
 
@@ -58,7 +58,7 @@ const Terminal = () => {
                 case 'ls ~/projects':
                     newHistory.push({
                         type: 'output',
-                        text: 'RECENT BUILDS:\n  [1] Java Web Server. (COMPLETE)\n  [2] C++ Vector Implementation in C. (IN-PROGRESS)\n  [3] Terminal Chatroom (COMPLETE)\n  [4] Music Playlist Sorter (COMPLETE)'
+                        text: 'RECENT BUILDS:\n  [1] Java Web Server. (COMPLETE)\n  [2] Neural Network Engine in C. (IN-PROGRESS)\n  [3] Terminal Chatroom (COMPLETE)\n  [4] Neural Network Engine in C (IN-PROGRESS)\n  [5] Music Playlist Sorter (COMPLETE)'
                     });
                 break;
 
