@@ -1,7 +1,7 @@
 {
   "name": "react.proj",
   "version": "0.0.0",
-  "homepage": "https://k5nnedy.github.io/project3-k5nnedy",
+  "homepage": "https://k5nnedy.github.io/dev-portfolio",
   "main": "/src/index.js",
   "scripts": {
     "predeploy": "npm run build",
