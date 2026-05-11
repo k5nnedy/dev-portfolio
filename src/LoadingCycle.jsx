@@ -6,8 +6,8 @@ const BOOT_LINES = [
     {text: '[  OK  ] mounting projects.db', delay: 600,  color: 'boot-ok' },
     {text: '[  OK  ] loading skill-icons', delay: 900,  color: 'boot-ok' },
     {text: '[  OK  ] started portfolio.service', delay: 1200, color: 'boot-ok' },
-    {text: '[ WARN ] coffee levels critical', delay: 1500, color: 'boot-warn' },
-    {text: '[  OK  ] proceeding anyway', delay: 1700, color: 'boot-ok' },
+    {text: '[ WARN ] user trapped in vim', delay: 1500, color: 'boot-warn' },
+    {text: '[  OK  ] forcing :wq and proceeding..', delay: 1700, color: 'boot-ok' },
     {text: '', delay: 2000, color: '' },
     {text: 'welcome, guest. press any key to skip...', delay: 2400, color: 'boot-dim' },
 ];
