@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {defaultValueTypes, motion} from "motion/react";
+import {motion} from "motion/react";
 
 import StatusBar from './StatusBar'; 
 import ProjectCard from './ProjectCard';
@@ -26,9 +26,6 @@ import './Githubrepos.css';
 
 import {SiPython, SiC, SiRust, SiDocker, SiNeovim, SiJavascript, SiPhp, SiUbuntu, SiGmail, SiGithub, SiMaildotcom, SiMailgun, SiPytorch, SiNumpy, SiCplusplus} from 'react-icons/si';
 import {FaJava, FaGitAlt, FaLinkedin, FaReact} from 'react-icons/fa';
-import { SlSocialLinkedin } from 'react-icons/sl';
-import { FaMailchimp } from 'react-icons/fa6';
-import { TiSocialLinkedin } from 'react-icons/ti';
 
 
 

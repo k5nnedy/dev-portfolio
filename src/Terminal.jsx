@@ -1,4 +1,3 @@
-import { color } from 'framer-motion';
 import React, { useState } from 'react';
 
 const Terminal = () => {
@@ -8,13 +7,49 @@ const Terminal = () => {
         { type: 'output', text: 'Type "help" to see available commands.' }
     ]);
   
-    // Stores what the user is currently typing
+    //Stores what the user is currently typing
     const [input, setInput] = useState('');
+
+    //track previously entered commands and where we are in them
+    const [cmdHistory, setCmdHistory] = useState([]);
+    const [historyIndex, setHistoryIndex] = useState(-1);
   
     const handleCommand = (e) => {
+
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (cmdHistory.length === 0) return;
+            const newIndex = historyIndex < cmdHistory.length - 1 
+                ? historyIndex + 1 
+                : historyIndex;
+            setHistoryIndex(newIndex);
+            setInput(cmdHistory[cmdHistory.length - 1 - newIndex]);
+            return;
+        }
+        
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex <= 0) {
+                setHistoryIndex(-1);
+                setInput('');
+                return;
+            }
+            const newIndex = historyIndex - 1;
+            setHistoryIndex(newIndex);
+            setInput(cmdHistory[cmdHistory.length - 1 - newIndex]);
+            return;
+        }
+
         if (e.key === 'Enter') {
             const command = input.trim().toLowerCase();
-            // Adds the users command to show as history
+
+            //Save non-empty commands to history
+            if (command) {
+                setCmdHistory(prev => [...prev, command]);
+            }
+            setHistoryIndex(-1);
+
+            //Adds the users command to show as history
             let newHistory = [...history, { type: 'input', text: `guest@kennedy-system ~$ ${command}` }];
             
             switch (command) {
@@ -29,8 +64,33 @@ const Terminal = () => {
                 case 'help':
                     newHistory.push({ 
                         type: 'output', 
-                        text: `AVAILABLE COMMANDS:\n  whoami      Display current user profile\n  resume      Open resume.pdf in new tab\n  clear       Clear terminal\n  ls          list files\n  cat [filename]       To print contents of a file on your screen (use ls to see files)\n  ` 
+                        text: `AVAILABLE COMMANDS:\n  whoami      Display current user profile\n  resume      Open resume.pdf in new tab\n  clear       Clear terminal\n  ls          list files\n  cat [filename]   To print contents of a file on your screen (use ls to see files)\n  ` 
                     });
+                break;
+
+                case 'cat skills.json':
+                    newHistory.push({
+                        type: 'output',
+                        text: `
+                    {
+                    "languages": {
+                        "primary":   ["Java", "Python", "C"],
+                        "learning":  ["Rust", "C++"],
+                        "web":       ["JavaScript", "HTML", "CSS"]
+                        },
+                        s
+                    "tools": ["Git", "Docker", "Linux", "Neovim", "VS Code", "Jupyter Notebook"],
+                    "libraries": ["React", "PyTorch", "NumPy"],
+                    "relevant courses taken": [
+                        "Operating Systems",
+                        "Data Structures & Algorithms",
+                        "Linear Algebra & Multivariable Calculus",
+                        "Distributed Systems"
+                        ],
+                    "interests": ["systems programming", "backend development",
+                    "low-level computing", "AI infrastructure"]
+                    }`
+                    })
                 break;
 
                 case 'cat about.txt':
@@ -48,6 +108,13 @@ const Terminal = () => {
                 break;
 
                 case 'resume':
+                    newHistory.push({
+                        type: 'output',
+                        text: 'Opening resume pdf in a new tab..'
+                    });
+                    window.open('/resume.pdf', '_blank');
+                break;
+                case 'cat resume':
                     newHistory.push({
                         type: 'output',
                         text: 'Opening resume pdf in a new tab..'

@@ -1,6 +1,4 @@
-/* ─────────────────────────────────────────
-   VIM COMMAND PALETTE
-───────────────────────────────────────── */
+/*mVIM COMMAND PALETTE */
 
 .vcp-overlay {
   position: fixed;
@@ -72,9 +70,7 @@
   font-family: 'Fira Code', monospace;
 }
 
-/* ─────────────────────────────────────────
-   BOOT SEQUENCE
-───────────────────────────────────────── */
+/* BOOT SEQUENCE */
 
 .boot-screen {
   position: fixed;
@@ -114,9 +110,7 @@
   animation: blink 1s step-end infinite;
 }
 
-/* ─────────────────────────────────────────
-   NEOFETCH PANEL
-───────────────────────────────────────── */
+/* NEOFETCH PANEL */
 
 .neofetch {
   display: flex;
