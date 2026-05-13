@@ -1,0 +1,123 @@
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 0 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  min-width: 140px;
+}
+
+.search-wrapper:focus-within,
+.search-wrapper.search-active {
+  border-color: var(--indent-line);
+  background: rgba(255,255,255,0.04);
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  font-size: 15px;
+  opacity: 0.6;
+  user-select: none;
+  line-height: 1;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--status-bar-txt);
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  width: 100px;
+  caret-color: var(--accent-blue);
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.4;
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+.search-clear:hover {
+  opacity: 1;
+  color: var(--status-bar-txt);
+}
+
+/* ─────────────────────────────────────────
+   SEARCH HIGHLIGHT
+───────────────────────────────────────── */
+
+.search-highlight {
+  background-color: var(--accent-blue);
+  color: var(--status-bar-bg);
+  border-radius: 2px;
+  padding: 0 1px;
+  font-style: normal;
+}
+
+/* ─────────────────────────────────────────
+   PROJECT CARD — dimmed when no match
+───────────────────────────────────────── */
+
+.project-dimmed {
+  opacity: 0.2;
+  transition: opacity 0.25s ease;
+}
+
+.project-card {
+  transition: opacity 0.25s ease;
+}
+
+.tech-tag-match {
+  border: 1px solid var(--accent-blue);
+  box-shadow: 0 0 4px rgba(137, 180, 250, 0.3);
+}
+
+/* ─────────────────────────────────────────
+   SKILL ICON — dimmed when no match
+───────────────────────────────────────── */
+
+.skill-dimmed {
+  opacity: 0.15;
+  transition: opacity 0.25s ease;
+}
+
+.skill-icon-wrapper {
+  transition: opacity 0.25s ease;
+}
+
+/* ─────────────────────────────────────────
+   NEOFETCH — row highlight on match
+───────────────────────────────────────── */
+
+.neo-row-match {
+  background: rgba(137, 180, 250, 0.08);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+
+/* ─────────────────────────────────────────
+   Hide search on very small screens
+───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .search-wrapper {
+    display: none;
+  }
+}
