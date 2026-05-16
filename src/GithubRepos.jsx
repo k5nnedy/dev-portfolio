@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useGitHubRepos from './Usegithubrepos';
 import { useSearch } from './Search';
 import Highlight from './Highlight';
+import RepoModalFeature from './RepoModalFeature';
 
 // Maps GitHub language names to a color — extend as needed
 const LANG_COLORS = {
@@ -36,6 +37,8 @@ const GitHubRepos = ({ username }) => {
     const { repos, loading, error } = useGitHubRepos(username);
     const { searchTerm } = useSearch();
     const term = searchTerm.toLowerCase().trim();
+
+    const [selectedRepo, setSelectedRepo] = useState(null);
 
     if (error) {
         return (
@@ -75,6 +78,8 @@ const GitHubRepos = ({ username }) => {
                         <div
                             key={repo.id}
                             className={`gh-repo-card ${term && !repo.matches ? 'gh-repo-dimmed' : ''}`}
+                            onClick={() => setSelectedRepo(repo)}
+                            title="click for details"
                         >
                             {/* Repo name */}
                             <div className="gh-repo-name">
@@ -102,7 +107,7 @@ const GitHubRepos = ({ username }) => {
                                     <span className="gh-repo-stat">★ {repo.stargazers_count}</span>
                                 )}
                                 {repo.forks_count > 0 && (
-                                    <span className="gh-repo-stat">⎇ {repo.forks_count}</span>
+                                    <span className="gh-repo-stat">⑂ {repo.forks_count}</span>
                                 )}
                             </div>
 
@@ -112,6 +117,7 @@ const GitHubRepos = ({ username }) => {
                                 target="_blank"
                                 rel="noreferrer"
                                 className="gh-repo-link"
+                                onClick={(e) => e.stopPropagation()}
                             >
                                 [ view on github ]
                             </a>
@@ -119,6 +125,13 @@ const GitHubRepos = ({ username }) => {
                     ))
                 }
             </div>
+
+            {selectedRepo && (
+                <RepoModalFeature
+                    repo={selectedRepo}
+                    onClose={() => setSelectedRepo(null)}
+                />
+            )}
         </div>
     );
 };

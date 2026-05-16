@@ -14,6 +14,7 @@ import AnimationBlock from "./AnimationBlock";
 import SkillIcon from './SkillIcons';
 import { SearchProvider } from './Search';
 import GitHubRepos from './GithubRepos';
+import './repomodal.css';
 
 
 

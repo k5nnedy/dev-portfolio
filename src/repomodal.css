@@ -1,0 +1,372 @@
+/* ─────────────────────────────────────────
+   REPO DETAIL MODAL
+───────────────────────────────────────── */
+
+.repo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+  animation: repo-modal-fade-in 0.15s ease-out;
+}
+
+@keyframes repo-modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.repo-modal {
+  background: var(--bg-color);
+  border: 1px solid var(--indent-line);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  overflow-y: auto;
+  font-family: 'Fira Code', monospace;
+  animation: repo-modal-pop-in 0.2s ease-out;
+}
+
+[data-theme='dark'] .repo-modal {
+  background: var(--status-bar-bg);
+}
+
+@keyframes repo-modal-pop-in {
+  from { transform: translateY(20px) scale(0.96); opacity: 0; }
+  to   { transform: translateY(0) scale(1);       opacity: 1; }
+}
+
+/* ── Header ── */
+
+.repo-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--indent-line);
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  z-index: 2;
+}
+
+.repo-modal-prompt {
+  color: #a6e3a1;
+  font-weight: bold;
+}
+
+.repo-modal-cmd {
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.repo-modal-name {
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+.repo-modal-close {
+  background: transparent;
+  border: 1px solid var(--indent-line);
+  color: var(--text-secondary);
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.repo-modal-close:hover {
+  border-color: #f38ba8;
+  color: #f38ba8;
+}
+
+/* ── Body ── */
+
+.repo-modal-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.repo-modal-desc {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Stats row ── */
+
+.repo-modal-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.repo-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 8px;
+  border: 1px solid rgba(127, 132, 156, 0.2);
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.repo-stat-icon {
+  color: var(--accent-blue);
+  font-size: 1.1rem;
+}
+
+.repo-stat-value {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.repo-stat-label {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* ── Sections ── */
+
+.repo-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo-modal-section-title {
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+}
+
+.repo-count {
+  color: var(--text-secondary);
+  font-weight: normal;
+  opacity: 0.6;
+}
+
+.repo-empty {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ── Language bar ── */
+
+.repo-lang-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--indent-line);
+}
+
+.repo-lang-segment {
+  transition: opacity 0.15s ease;
+}
+
+.repo-lang-segment:hover {
+  opacity: 0.8;
+}
+
+.repo-lang-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.75rem;
+}
+
+.repo-lang-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-primary);
+}
+
+.repo-lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.repo-lang-pct {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* ── Contributors ── */
+
+.repo-contributors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.repo-contributor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(127, 132, 156, 0.15);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.repo-contributor:hover {
+  border-color: var(--accent-blue);
+}
+
+.repo-contributor-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.repo-contributor-login {
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: bold;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-contributor-count {
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+/* ── Releases ── */
+
+.repo-releases {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.repo-release {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid rgba(127, 132, 156, 0.15);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: border-color 0.15s ease;
+}
+
+.repo-release:hover {
+  border-color: var(--accent-blue);
+}
+
+.repo-release-tag {
+  color: var(--accent-blue);
+  font-weight: bold;
+  background: var(--indent-line);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.repo-release-name {
+  color: var(--text-primary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-release-date {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  font-size: 0.72rem;
+}
+
+/* ── Loading state ── */
+
+.repo-modal-loading {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  padding: 8px 0;
+}
+
+.repo-loading-prompt {
+  color: #a6e3a1;
+}
+
+/* ── Footer link ── */
+
+.repo-modal-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--indent-line);
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.repo-modal-link:hover {
+  border-color: var(--accent-blue);
+  background: rgba(137, 180, 250, 0.05);
+}
+
+/* ── Make existing repo cards look clickable ── */
+
+.gh-repo-card {
+  cursor: pointer;
+}
+
+/* The view-on-github link inside the card shouldn't trigger the modal */
+.gh-repo-link {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 600px) {
+  .repo-modal-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .repo-contributors {
+    grid-template-columns: 1fr;
+  }
+  .repo-release-name {
+    display: none;
+  }
+}

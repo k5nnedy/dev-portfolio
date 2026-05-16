@@ -1,8 +1,9 @@
 import React from 'react';
 
 /**
- * Splits `text` on every occurrence of `term` (case-insensitive)
- * and wraps each match in a <mark> with the highlight class.
+ * Used for search feature
+ * Splits `text` on every occurrence of `term`
+ * wraps each match with the highlight class.
  * Returns plain text if term is empty.
  */
 const Highlight = ({ text, term }) => {
